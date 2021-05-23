@@ -1,0 +1,40 @@
+<view class="home">
+  <map longitude="{{j }}" class="map" latitude="{{w}}">
+
+  </map>
+
+
+  <!-- <view class="title">
+      今天你学习了吗？
+      <view>
+        点击下面按钮开始打卡学习吧！
+      </view>
+
+    </view> -->
+  <van-notice-bar class="tz" left-icon="volume-o" text="今天你学习了吗？点击打卡开始学习" />
+  <image src="../../images/dkfoot.jpg" class="foot"></image>
+
+  <view style="width:100%;height:2rem;"></view>
+
+  <view class="y" bindtap="clickdk">
+    {{dk}}
+  </view>
+  <view class="footList">
+    <scroll-view scroll-y="true" style="height: 35vh;margin-top:5vh;" bindscrolltoupper="upper"
+      bindscrolltolower="lower">
+
+      <view wx:for="{{dklist}}">
+
+        <van-swipe-cell >
+          <van-cell-group>
+            <van-cell title="打卡时间：{{item.start}}"
+              value="{{item.end==''?'未退卡':'退卡时间'+item.end}}" />
+          </van-cell-group>
+          
+        </van-swipe-cell>
+      </view>
+    </scroll-view>
+  </view>
+
+
+</view>

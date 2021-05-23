@@ -1,0 +1,31 @@
+<view class="home">
+<image src="../../images/login.png" class="bp"></image>
+
+<image src="../../images/logo.png" class="logo"></image>
+
+  <view class="loginbox">
+    <view class="title">
+    请登录
+    </view>
+    <view class="srk">
+      <van-field
+      label="学号"
+    value="{{ xh }}"
+    placeholder="请输入学号"
+    border="{{ false }}"
+    bind:change="xhChange"
+  />
+  <van-field
+  label="密码"
+    value="{{ mm }}"
+    placeholder="请输入密码"
+    border="{{ false }}"
+    bind:change="pwdChange"
+  />
+    </view>
+    <view class="button">
+      <button bindtap="login" class="b">登录</button>
+    </view>
+
+  </view>
+</view>

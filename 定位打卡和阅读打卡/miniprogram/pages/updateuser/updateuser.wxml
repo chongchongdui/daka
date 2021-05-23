@@ -1,0 +1,26 @@
+<image src="../../images/uu.jpg" class="uu"></image>
+
+<view class="srk">
+  <view class="title">
+    学号：
+  </view>
+  <input disabled="{{true}}" type="text"value="{{user.xh}}" class="sr" />
+</view>
+
+<view class="srk">
+  <view class="title">
+    姓名：
+  </view>
+  <input  type="text" bind:input="xm" value="{{user.username}}" class="sr" />
+</view>
+
+<view class="srk">
+  <view class="title">
+    重置密码：
+  </view>
+  <input type="password" bind:input="pwd" value="{{user.pwd}}" class="sr" />
+</view>
+
+<button bindtap="update" class="an" type="primary">
+  保存
+</button>

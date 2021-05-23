@@ -1,0 +1,26 @@
+<view >
+  <image src="../../images/user.jpg" class="user"></image>
+  <van-cell-group>
+    <text>
+        
+
+    </text>
+
+    <van-field value="{{ xh }}" placeholder="请输入書名" label="学号" border="{{ false }}" bind:change="onChange"  disabled="{{true}}" />
+    <van-field value="{{ name }}" placeholder="请输入用户名称" label="用户名称" border="{{ false }}" bind:change="nameChange" />
+
+<!--    
+  <van-field value="{{ pwd }}" type="password" placeholder="请输入密码" label="密码" border="{{ false }}" bind:change="pwdChange" /> -->
+
+  <van-cell title="累计打卡时间" value="{{dktime}}小时"  />
+
+  <van-cell title="累计读书" value="{{book}}本"  />
+  <van-cell
+  is-link
+  title="修改信息"
+  link-type="navigateTo"
+  url="/pages/updateuser/updateuser"
+/>
+  <!-- <button style="margin-top:5vh;" type="primary" bindtap="addbook">修改信息</button> -->
+</van-cell-group>
+</view>
