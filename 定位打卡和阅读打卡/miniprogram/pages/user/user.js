@@ -41,5 +41,39 @@ Page({
       }).get()
       console.log("data",data)
     app.globalData.user = data.data[0]
-  }
+  },
+  /**
+   * 获取读书数量
+   */
+  async getbook() {
+    db.collection('yd')
+      .where({
+        xh: "123123"
+      })
+      .get()
+      .then(data => {
+        console.log(data.data)
+        this.setData({
+          book: data.data.length
+        })
+      })
+  },
+  
+
+  /**
+   * 双向绑定组
+   * start
+   */
+  nameChange(e) {
+    this.setData({
+      name: e.detail
+    })
+  },
+  pwdChange(e) {
+    this.setData({
+      pwd: e.detail
+    })
+  },
+  // end
+
 })
