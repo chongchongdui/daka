@@ -164,3 +164,137 @@ await this.getdklist()
 
     }
   }
+ //计算相差时间
+  fun(t1, t2) {
+    let startTime = new Date(t1); // 开始时间
+    let endTime = new Date(t2); // 结束时间
+
+    return Math.floor((endTime - startTime) / 1000 / 60 / 60)
+  },
+  //打卡执行函数操作数据库
+  async dkch() {
+    let date = this.getCurrentDate(2)
+    if (this.data.dk == "打卡") {
+
+      db.collection('dk')
+        .add({
+          data:
+          {
+            xh: getApp().globalData.user.xh,
+            start: date,
+            end: '',
+            timesc: '',
+            createTime:db.serverDate() 
+          }
+        }).then(res => {
+          console.log(res)
+      db.collection('dk')
+        .field({  
+          start: true,
+          end: true,  
+          })
+          .orderBy('start', 'desc')
+          .get()
+
+          db.collection('user').doc(getApp().globalData.user._id)
+            .update({
+              data: {
+                dkid: res._id
+              }
+            }).then(data => {
+
+              this.getUser()
+              wx.showToast({
+                title: '打卡成功',
+              })
+
+              this.getdklist()
+            })
+
+        })
+
+    } else {
+      
+      const dk = await db.collection('dk')
+      .where({
+        _id:getApp().globalData.user.dkid
+      }).get()
+      
+      console.log("dk",dk)
+      db.collection('dk').doc(getApp().globalData.user.dkid)
+      .update({
+        data: {
+          end: date,
+          timesc:this.fun(dk.data[0].start,date)
+        }
+      }).then(data => {
+        db.collection('user').doc(getApp().globalData.user._id)
+        .update({
+          data: {
+            dkid: ""
+          }
+        }).then(data => {
+
+          this.getUser()
+          wx.showToast({
+            title: '退卡成功',
+          })
+
+          this.getdklist()
+        })
+      
+      })
+      
+
+
+    }
+
+  },
+  // 获取用户信息
+  async getUser(){
+    const data = await db.collection('user')
+    .where({
+      xh: getApp().globalData.user.xh,
+      pwd:getApp().globalData.user.pwd
+    }).get()
+
+    getApp().globalData.user = data.data[0]
+    if(getApp().globalData.user.dkid){
+      this.setData({
+        dk:"退卡"
+      })
+    }else{
+      this.setData({
+        dk:"打卡"
+      })
+    }
+    
+  },
+  // 获取事件函数，传参数1获取日期，传2获取日期事件
+  getCurrentDate(format) {
+    var now = new Date();
+    var year = now.getFullYear(); //得到年份
+    var month = now.getMonth();//得到月份
+    var date = now.getDate();//得到日期
+    var day = now.getDay();//得到周几
+    var hour = now.getHours();//得到小时
+    var minu = now.getMinutes();//得到分钟
+    var sec = now.getSeconds();//得到秒
+    month = month + 1;
+    if (month < 10) month = "0" + month;
+    if (date < 10) date = "0" + date;
+    if (hour < 10) hour = "0" + hour;
+    if (minu < 10) minu = "0" + minu;
+    if (sec < 10) sec = "0" + sec;
+    var time = "";
+    //精确到天
+    if (format == 1) {
+      time = year + "-" + month + "-" + date;
+    }
+    //精确到分
+    else if (format == 2) {
+      time = year + "-" + month + "-" + date + " " + hour + ":" + minu + ":" + sec;
+    }
+    return time;
+  }
+})
