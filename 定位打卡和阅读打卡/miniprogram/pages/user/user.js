@@ -58,8 +58,31 @@ Page({
         })
       })
   },
-  
+   /**
+   * 计算打卡总时长
+   */
+  getdk() {
+    db.collection('dk')
+      .where({
+        xh: "123123"
+      })
+      .get()
+      .then(data => {
+        console.log(data.data)
+        let co = 0
+        data.data.forEach(el => {
+          console.log(el.timesc)
+          if (el.timesc) {
+            co = co + el.timesc
+          }
+          this.setData({
+            dktime: co
+          })
+        })
 
+
+      })
+  },
   /**
    * 双向绑定组
    * start
