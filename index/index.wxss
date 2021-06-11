@@ -1,0 +1,49 @@
+.home{
+  width: 100%;
+  height: 100vh;
+  background-color: aliceblue;
+}
+.loginbox{
+  width: 80%;
+  margin: auto;
+  min-height: 40vh;
+  margin-top: 20vh;
+  background-color: #ffffff;
+  border-radius: .5rem;
+}
+.title{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  line-height: 4rem;
+  font-size: 1.5rem;
+  z-index: 3;
+}
+.srk{
+  width: 90%;
+  margin: auto;
+}
+
+.button{
+  padding-top: 5vh;
+  
+}
+.b{
+  background-color: aliceblue;
+}
+
+.bp{
+width: 100%;
+height: 100vh;
+position: absolute;
+  /* z-index: 3; */
+}
+
+.logo{
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  position: absolute;
+  left: 35vw;
+  top: 10vh;
+}
