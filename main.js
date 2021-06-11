@@ -51,6 +51,7 @@ await this.getdklist()
    */
   async getdklist(){
     const dk = await db.collection('dk')
+    .orderBy('start','desc')
       .where({
         xh:getApp().globalData.user.xh
       }).get()
