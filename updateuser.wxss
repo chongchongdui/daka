@@ -1,0 +1,29 @@
+.uu{
+  width: 100%;
+  position: absolute;
+}
+
+.srk{
+  width: 100%;
+  height: 3rem;
+  position: relative;
+}
+.title{
+width: 30%;
+float: left;
+text-align: right;
+line-height: 3rem;
+font-size: 1rem;
+}
+.sr{
+  
+  width: 60%;
+float: left;
+/* margin-left: 5%; */
+border-bottom: 1rpx solid #000000;
+margin: 1rem;
+}
+
+.an{
+  margin-top:1rem ;
+}
