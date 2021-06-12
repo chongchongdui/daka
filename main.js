@@ -77,15 +77,15 @@ await this.getdklist()
       console.log("dqj", dqj)
       console.log("dqw", dqw)
       if (dqj > 0) {
-        if (dqj < 0.01) {
+        if (dqj < 0.1) {
 
           if (dqw > 0) {
-            if (dqw < 0.01) {
+            if (dqw < 0.1) {
               this.dkch()
               return
             }
           } else {
-            if (dqw > -0.01) {
+            if (dqw > -0.1) {
               this.dkch()
               return
             }
@@ -95,15 +95,15 @@ await this.getdklist()
 
         }
       } else {
-        if (dqj > -0.01) {
+        if (dqj > -0.1) {
 
           if (dqw > 0) {
-            if (dqw < 0.01) {
+            if (dqw < 0.1) {
               this.dkch()
               return
             }
           } else {
-            if (dqw > -0.01) {
+            if (dqw > -0.1) {
               this.dkch()
               return
             }
@@ -122,15 +122,15 @@ await this.getdklist()
       let dqj = mbj - this.data.j//mbj
       let dqw = mbw - this.data.w//mbw
       if (dqj > 0) {
-        if (dqj < 0.01) {
+        if (dqj < 0.1) {
 
           if (dqw > 0) {
-            if (dqw < 0.01) {
+            if (dqw < 0.1) {
               this.dkch()
               return
             }
           } else {
-            if (dqw > -0.01) {
+            if (dqw > -0.1) {
               this.dkch()
               return
             }
@@ -140,15 +140,15 @@ await this.getdklist()
 
         }
       } else {
-        if (dqj > -0.01) {
+        if (dqj > -0.1) {
 
           if (dqw > 0) {
-            if (dqw < 0.01) {
+            if (dqw < 0.1) {
               this.dkch()
               return
             }
           } else {
-            if (dqw > -0.01) {
+            if (dqw > -0.1) {
               this.dkch()
               return
             }
