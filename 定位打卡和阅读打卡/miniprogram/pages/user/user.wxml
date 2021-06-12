@@ -14,12 +14,6 @@
   <van-cell title="累计打卡时间" value="{{dktime}}小时"  />
 
   <van-cell title="累计读书" value="{{book}}本"  />
-  <van-cell
-  is-link
-  title="修改信息"
-  link-type="navigateTo"
-  url="/pages/updateuser/updateuser"
-/>
     
   <!-- <button style="margin-top:5vh;" type="primary" bindtap="addbook">修改信息</button> -->
   
