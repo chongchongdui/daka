@@ -24,6 +24,8 @@ Page({
     await this.getuser()
     console.log("appData", app.globalData.user)
     this.setData({
+       name: app.globalData.user.username,
+       xh: app.globalData.user.xh
     })
     await this.getbook()
     await this.getdk()
